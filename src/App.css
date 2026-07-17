@@ -14,6 +14,47 @@ body, html {
   align-items: center;
 }
 
+.error-popup {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999; /* Stays on top */
+  
+  /* Glassmorphism Core */
+  background: rgba(255, 90, 90, 0.35);
+  backdrop-filter: blur(12px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  border: 1px solid rgba(255, 185, 195, 0.4); /* Subtle white border highlight */
+  box-shadow: 0 8px 32px 0 rgba(5, 0, 1, 0.2); /* Soft depth shadow */
+  
+  /* Text and Layout styling */
+  color: #ff3b30; 
+  padding: 14px 28px;
+  border-radius: 16px; 
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  
+  /* Subtle glow to highlight the glass container */
+  box-shadow: 0 8px 32px 0 rgba(255, 59, 48, 0.25); 
+  
+  /* Slide-down pop animation */
+  animation: slideDown 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes slideDown {
+  from {
+    top: -60px;
+    opacity: 0;
+    transform: translateX(-50%) scale(0.9);
+  }
+  to {
+    top: 20px;
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
 /* ===== Overlay ===== */
 .overlay {
   position: absolute;

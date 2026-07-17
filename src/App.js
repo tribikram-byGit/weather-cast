@@ -12,8 +12,15 @@ import "./App.css";
 function App() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
+  const [notification, setNotification] = useState("");
 
-  //const API_KEY = process.env.REACT_APP_API_KEY
+  const showPopup = (message) => {
+    setNotification(message);
+    
+    setTimeout(() => {
+      setNotification("");
+    }, 3000);
+  };
 
   const fetchWeather = async () => {
     if (!city) return;
@@ -24,12 +31,12 @@ function App() {
 
       if (data.cod === 200) {
         setWeather(data);
-      } else {
-        setWeather(null);
-        alert("City not found!");
+      } else if (res.status === 404 || data.cod === "404") {
+        showPopup(" City not found. ");
+        return;
       }
     } catch (error) {
-      console.error("Error fetching weather:", error);
+      showPopup("Something went wrong.");
     }
   };
 
@@ -89,6 +96,14 @@ function App() {
           <p className="hint">Enter a city to check the weather ☁️</p>
         )}
       </div>
+
+      {notification && (
+        <div className="error-popup">
+          {notification}
+        </div>
+      )}
+
+
     </div>
   );
 }
