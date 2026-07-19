@@ -6,6 +6,7 @@ import mist from "./assets/mists.jpg";
 import defaultBg from "./assets/miraculous-def.webp";
 
 import { useState } from "react";
+import { Analytics } from "@vercel/analytics/react"
 import "./App.css";
 
 
