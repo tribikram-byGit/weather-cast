@@ -84,11 +84,11 @@ body, html {
 .weather-card {
   position: relative;
   z-index: 2; /* sits above overlay */
-  background: rgba(255, 255, 255, 0.4); 
+  background: rgba(255, 255, 255, 0.3); 
   backdrop-filter: blur(7px);
   padding: 2rem 3rem;
   border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.20);
   text-align: center;
   width: 350px;
   max-width: 90%;
@@ -96,8 +96,8 @@ body, html {
 }
 
 .weather-card.active {
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(25px);
 }
 
 .weather-card:hover {
@@ -106,8 +106,9 @@ body, html {
 
 .weather-card h1 {
   margin-bottom: 1.5rem;
-  color: #333;
+  color: #fff5f5;
   font-size: 1.8rem;
+  font-family:cursive;
 }
 
 /* ===== Search Section ===== */
@@ -125,9 +126,12 @@ input {
   padding: 10px;
   border-radius: 10px;
   border: 1px solid #ccc;
+  color: #c60407;
+  background-color: rgba(255, 250, 230, 0.6);
   outline: none;
+  font-family:monospace;
   font-size: 16px;
-  min-width: 180px;
+  min-width: 160px;
   text-align: center;
 }
 
@@ -135,12 +139,18 @@ button {
   padding: 10px 20px;
   border: none;
   border-radius: 8px;
-  background-color: #0078ff;
-  color: white;
+  /*background-color: #f31c27;*/
+  background: #420001;
+  background: linear-gradient(1deg,rgba(66, 0, 1, 1) 2%, rgba(173, 23, 48, 1) 48%, rgba(229, 98, 159, 1) 100%);
+  color: #ffffff;
   cursor: pointer;
   font-size: 16px;
   transition: 0.2s;
   white-space: nowrap;
+}
+
+button:active {
+  transform: scale(0.85, 0.9);
 }
 
 .weather-info {
