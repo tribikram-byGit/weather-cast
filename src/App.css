@@ -63,11 +63,11 @@ body, html {
   width: 100%;
   height: 100%;
   background: linear-gradient(
-    to bottom right,
-    rgba(0, 0, 0, 0.4),
-    rgba(0, 0, 0, 0.2)
-  );
-  backdrop-filter: blur(2px);
+            -40deg,
+            rgba(255, 165, 0, 0.35),
+            rgba(0, 123, 255, 0.35)      
+        );
+  /* backdrop-filter: blur(1px); */
   z-index: 1;
 }
 
@@ -85,8 +85,9 @@ body, html {
   position: relative;
   z-index: 2; /* sits above overlay */
   background: rgba(255, 255, 255, 0.3); 
-  backdrop-filter: blur(7px);
+  backdrop-filter: blur(2px);
   padding: 2rem 3rem;
+  border: 2px solid rgba(255,250,250,0.5);
   border-radius: 20px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.20);
   text-align: center;
@@ -96,19 +97,20 @@ body, html {
 }
 
 .weather-card.active {
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(25px);
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(4px);
 }
 
 .weather-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
+  backdrop-filter: blur(4px);
 }
 
 .weather-card h1 {
   margin-bottom: 1.5rem;
   color: #fff5f5;
   font-size: 1.8rem;
-  font-family:cursive;
+  font-family: cursive;
 }
 
 /* ===== Search Section ===== */
@@ -124,10 +126,10 @@ body, html {
 input {
   flex: 1;
   padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  color: #c60407;
-  background-color: rgba(255, 250, 230, 0.6);
+  border-radius: 18px;
+  border: none;
+  color: #ffffff;
+  background-color: rgba(205, 200, 200, 0.85);
   outline: none;
   font-family:monospace;
   font-size: 16px;
@@ -135,25 +137,30 @@ input {
   text-align: center;
 }
 
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  /*background-color: #f31c27;*/
-  background: #420001;
-  background: linear-gradient(1deg,rgba(66, 0, 1, 1) 2%, rgba(173, 23, 48, 1) 48%, rgba(229, 98, 159, 1) 100%);
-  color: #ffffff;
-  cursor: pointer;
-  font-size: 16px;
-  transition: 0.2s;
-  white-space: nowrap;
+input:focus {
+  border: 1px solid #fee;
 }
 
+button {
+  padding: 10px 20px;
+  border: 0px ; 
+  border-radius: 18px;
+  color: #ffffff;
+  background-color: rgba(250,250,255,0.25);
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+button:hover {
+  background-color: rgba(250,250,255,0.4);
+}
 button:active {
   transform: scale(0.85, 0.9);
 }
 
-.weather-info {
+.weather-info,.hint {
+  color: #fffefc;
   animation: fadeIn 0.6s ease forwards;
 }
 

@@ -89,9 +89,9 @@ function App() {
 
         {weather ? (
           <div className="weather-info">
-            <h2>{weather.name}</h2>
+            <h2>{weather.name} | {weather.main.temp}°C</h2>
             <p className="desc">{weather.weather[0].description}</p>
-            <h3>{weather.main.temp}°C</h3>
+            <span><small>Feels Like {weather.main.feels_like}°C | Humidity {weather.main.humidity}%</small></span>
           </div>
         ) : (
           <p className="hint">Enter a city to check the weather ☁️</p>
